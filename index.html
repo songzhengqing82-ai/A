@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个简洁、安静、自动保存的中文待办清单。">
+    <title>木鱼清单｜专注今天</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>今日清单</div>
+          <h1 id="page-title">把今天，<br><em>一件件做好。</em></h1>
+        </div>
+        <div class="date-card">
+          <span id="current-date"></span>
+          <strong id="remaining-count">0</strong>
+          <small>件待完成</small>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="待办事项">
+        <form class="add-form" id="add-form">
+          <span class="plus" aria-hidden="true">＋</span>
+          <input id="new-task" autocomplete="off" maxlength="200" placeholder="添加一个新任务…" aria-label="新任务名称">
+          <button type="submit">添加任务 <span>↵</span></button>
+        </form>
+
+        <div class="toolbar">
+          <div class="filters" aria-label="筛选任务">
+            <button type="button" class="active" data-filter="all">全部 <b id="total-count">0</b></button>
+            <button type="button" data-filter="active">进行中</button>
+            <button type="button" data-filter="done">已完成</button>
+          </div>
+          <button type="button" class="clear" id="clear-completed" hidden>清除已完成</button>
+        </div>
+
+        <div class="task-list" id="task-list" aria-live="polite"></div>
+      </section>
+
+      <footer>
+        <div class="progress-copy"><span>今日进度</span><strong id="progress-value">0%</strong></div>
+        <div class="progress-track" role="progressbar" aria-label="今日完成进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progress-bar"></i></div>
+        <p id="progress-message">从一件小事开始。</p>
+      </footer>
+    </main>
+  </body>
+</html>
